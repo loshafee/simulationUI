@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol {
+            list-style: none;
+        }
+        .simulation-select {
+            margin: 0 auto;
+            display: block;
+            width: 180px;
+            font-family: "Microsoft Yahei";
+            position: relative;
+        }
+        .simulation-select::after {
+            content: "";
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            border: 6px solid ;
+            border-color: currentColor transparent transparent transparent;
+            width: 0;
+            height: 0;
+        }
+        .simulation-select input {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            outline: none;
+            font-family: "Microsoft Yahei";
+            padding: 4px 26px 4px 6px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+        }
+        .simulation-select input:focus {
+            border-color: #599df2;
+        }
+        .simulation-select input::after {
+            content: 'ss'
+        }
+        .simulation-select ul {
+            display: none;
+            font-size: 14px;
+            box-sizing: border-box;
+            width: 100%;
+            margin-top: 4px;
+            border: 1px solid #599df2;
+        }
+        .simulation-select ul li {
+            padding: 2px 4px;
+        }
+        .simulation-select ul li:hover {
+            background-color: #599df2;
+            color: #fff;
+        }
+    </style>
+    </style>
+    <title>simulation select</title>
+</head>
+<body>
+    <div class="simulation-select"></div>
+    <script src="../src/simulationUI.js"></script>
+    <script>
+        var simSelect = new SimulationSelect({
+            el: '.simulation-select'
+        })
+        simSelect.el.addEventListener('change', function (e) {
+            console.log(e, arguments)
+        }, false)
+    </script>
+</body>
+</html>
