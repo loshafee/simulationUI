@@ -4,94 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        ul,ol {
-            list-style: none;
-        }
-        .simulation-select {
-            margin: 0 auto;
-            display: inline-block;
-            font-family: "Microsoft Yahei";
-            position: relative;
-            user-select: none;
-        }
-        .simulation-select::after {
-            content: "";
-            position: absolute;
-            right: 10px;
-            top: 11px;
-            border: 5px solid ;
-            border-color: currentColor transparent transparent transparent;
-            width: 0;
-            height: 0;
-        }
-        .simulation-select input {
-            display: block;
-            box-sizing: border-box;
-            width: 100%;
-            outline: none;
-            font-family: "Microsoft Yahei";
-            padding: 4px 26px 4px 6px;
-            border: 1px solid #ccc;
-            border-radius: 2px;
-            -webkit-user-select: none;
-        }
-        .simulation-select input:focus {
-            border-color: #599df2;
-        }
-        .simulation-select ul {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            left: 0;
-            top: 28px;
-            font-size: 14px;
-            box-sizing: border-box;
-            width: 100%;
-            margin-top: 4px;
-            border: 1px solid #599df2;
-        }
-        .simulation-select ul li {
-            padding: 2px 4px;
-        }
-        .simulation-select ul li:hover {
-            background-color: #599df2;
-            color: #fff;
-        }
-    </style>
-    </style>
+    <link rel="stylesheet" href="../src/css/simulation-ui.css">
     <title>simulation select</title>
 </head>
 <body>
-    <select name="" id="select">
-        <span>sdfl</span>
-        <option value>1</option>
-
-        <option value="2">2312</option>
-        <option value="2">2312</option>
-        <option value="3">2313</option>
-        <option value="4">2314</option>
-
-        ="="="
-    </select>
-    <div class="simulation-select">
-        <span value data-ui="select-item">.....</span>
-        <span value="0" data-ui="select-item">ksdfsdfa</span>
-        <span value="1" data-ui="select-item">sdflkjowerb</span>
+    <div class="simulation-select" id="simSelect">
     </div>
-    <p>Lorem ipsum dolor sit amet.</p>
     <script src="../src/simulationUI.js"></script>
     <script>
         var simSelect = new SimulationSelect({
-            el: '.simulation-select',
-            data: [4, 5, 6, 7]
+            el: '#simSelect',
+            data: ['Chrome', 'IE', 'Firefox', 'Opera']
         })
         simSelect.el.addEventListener('change', function (e) {
-            console.log(e, arguments)
+            console.log(this, e)
         }, false)
     </script>
 </body>
