@@ -14,17 +14,17 @@
         }
         .simulation-select {
             margin: 0 auto;
-            display: block;
-            width: 180px;
+            display: inline-block;
             font-family: "Microsoft Yahei";
             position: relative;
+            user-select: none;
         }
         .simulation-select::after {
             content: "";
             position: absolute;
             right: 10px;
-            top: 10px;
-            border: 6px solid ;
+            top: 11px;
+            border: 5px solid ;
             border-color: currentColor transparent transparent transparent;
             width: 0;
             height: 0;
@@ -38,15 +38,17 @@
             padding: 4px 26px 4px 6px;
             border: 1px solid #ccc;
             border-radius: 2px;
+            -webkit-user-select: none;
         }
         .simulation-select input:focus {
             border-color: #599df2;
         }
-        .simulation-select input::after {
-            content: 'ss'
-        }
         .simulation-select ul {
             display: none;
+            position: absolute;
+            background-color: #fff;
+            left: 0;
+            top: 28px;
             font-size: 14px;
             box-sizing: border-box;
             width: 100%;
@@ -65,11 +67,28 @@
     <title>simulation select</title>
 </head>
 <body>
-    <div class="simulation-select"></div>
+    <select name="" id="select">
+        <span>sdfl</span>
+        <option value>1</option>
+
+        <option value="2">2312</option>
+        <option value="2">2312</option>
+        <option value="3">2313</option>
+        <option value="4">2314</option>
+
+        ="="="
+    </select>
+    <div class="simulation-select">
+        <span value data-ui="select-item">.....</span>
+        <span value="0" data-ui="select-item">ksdfsdfa</span>
+        <span value="1" data-ui="select-item">sdflkjowerb</span>
+    </div>
+    <p>Lorem ipsum dolor sit amet.</p>
     <script src="../src/simulationUI.js"></script>
     <script>
         var simSelect = new SimulationSelect({
-            el: '.simulation-select'
+            el: '.simulation-select',
+            data: [4, 5, 6, 7]
         })
         simSelect.el.addEventListener('change', function (e) {
             console.log(e, arguments)
