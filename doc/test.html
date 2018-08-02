@@ -109,7 +109,41 @@
                     // 删除container
                     delete container
                 },
-                bindEvent: function () {},
+                bindEvent: function () {
+                    var self = this
+                    // 创建事件
+                    var event = new CustomEvent("change", {"detail":{"select":true}})
+                    var ul = self.el.querySelector('ul')
+                    // 点击前先隐藏ul列表
+                    ul.style.display = 'none'
+                    // 给整个列表添加点击事件
+                    this.el.addEventListener('click', function (e) {
+                        var tagName = e.target.tagName
+                        if (tagName === "INPUT") {
+                            // 目标元素input
+                            // 判断ul列表的显隐
+                            ul.style.display = (ul.style.display === 'none' ? 'block' : 'none')
+                        } else if (tagName === 'LI') {
+                            // 目标元素li
+                            ul.style.display = 'none'
+                            if (self._prevItem === e.target) {
+                                // 阻止重复点击
+                                return
+                            }
+                            self._prevItem = e.target
+                            this.children[0].value = e.target.textContent
+                            self.value = e.target.dataset.id
+                            // 分发事件
+                            self.el.dispatchEvent(event)
+                        }
+                        // 阻止事件冒泡
+                        e.stopPropagation()
+                    }, false)
+                    ul.children[0].click()
+                    document.addEventListener('click', function () {
+                        ul.style.display = 'none'
+                    }, false)
+                },
                 destroy: function () {},
             }
             win.SimulationSelect = SimulationSelect
