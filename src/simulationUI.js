@@ -5,7 +5,7 @@
         }, config)
         this.el = document.querySelector(this.config.el)
         this.options = []
-        this.options.selectIndex = 0
+        this.selectedIndex = this.options.selectedIndex = 0
         this.value = ''
         this.init()
     }   
@@ -62,7 +62,7 @@
                     }
                     self._prevItem = e.target
                     this.children[0].value = e.target.textContent
-                    self.options.selectIndex = self.getIndex(e.target)
+                    self.selectedIndex = self.options.selectedIndex = self.getIndex(e.target)
                     self.value = e.target.dataset.id
                     // 分发事件
                     self.el.dispatchEvent(event)

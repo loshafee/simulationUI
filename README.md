@@ -56,8 +56,9 @@ SimulationSelect 实例 `simSelect`
     - `config` {Object} 配置信息
     - `el` {Element} 模拟下拉列表的元素节点
     - `options` {Array} 列表的item元素组成的数组集合
-        - `selectIndex` 当前所选item的下标
+        - `selectedIndex` 当前所选item的下标
     - `value` {String} 模拟列表的值
+    - `selectedIndex` 当前所选`item`的下标值
 
 - `Method`
     - `init()` 初始化组件
