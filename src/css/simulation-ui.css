@@ -1,15 +1,15 @@
 @charset 'utf8';
-ul,ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 .simulation-select {
     margin: 0 auto;
     display: inline-block;
     font-family: "Microsoft Yahei";
     position: relative;
     user-select: none;
+}
+.simulation-select ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 .simulation-select::after {
     content: "";

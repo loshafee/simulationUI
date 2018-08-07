@@ -4,13 +4,12 @@ simulation select element，自定义 `select` 下拉列表
 重造轮子，模拟select下拉列表，以便自定义样式。
 以下为编写过程中的笔记，欢迎交流指导。
 
-[自定义组件编写-下拉列表之一概设](https://github.com/loshafee/simulationUI/blob/master/docs/自定义组件编写-下拉列表之一概设.md)
+[SimulationUI-下拉列表API](./自定义组件编写SimulationUI-下拉列表API)
+[自定义组件编写-下拉列表之一概设](./自定义组件编写-下拉列表之一概设)
 
-[自定义组件编写-下拉列表之二结构渲染](https://github.com/loshafee/simulationUI/blob/master/docs/自定义组件编写-下拉列表之二结构渲染.md)
+[自定义组件编写-下拉列表之二结构渲染](./自定义组件编写-下拉列表之二结构渲染)
 
-[自定义组件编写-下拉列表之三事件绑定](https://github.com/loshafee/simulationUI/blob/master/docs/自定义组件编写-下拉列表之三事件绑定.md)
-
-[Demo 实例及用法](https://loshafee.github.io/simulationUI/)
+[自定义组件编写-下拉列表之三事件绑定](./自定义组件编写-下拉列表之三事件绑定)
 
 
 ## 分别引入样式以及脚本
