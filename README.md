@@ -76,6 +76,9 @@ SimulationSelect 实例 `simSelect`
     simSelect.addEventListener('change', function (e) {
         // 事件处理函数
     }, true)
+    
+## 兼容性说明
+注意，此代码仅用于交流学习，暂时无作兼容性处理，请勿用于生产环境。
 
 ## 参考文档
 
