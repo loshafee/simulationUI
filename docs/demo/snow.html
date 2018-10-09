@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas 粒子效果实例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body {
+            height: 100%;
+        }
+        canvas {
+            display: block;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+
+        var particles = [] // 存储所有粒子容器
+        var tick = 0 // 控制粒子生成速度
+        var MAX_WIDTH = document.documentElement.clientWidth
+        var MAX_HEIGHT = document.documentElement.clientHeight
+        var COUNT_NUNBER = 200
+
+        canvas.width = MAX_WIDTH
+        canvas.height = MAX_HEIGHT
+
+        // 返回min, max之间的随机整数
+        function rand (min, max) {
+            return parseInt(Math.random() * (max - min) + min);
+        }
+
+        // 粒子构造器
+        class Particle {
+            constructor (options) {
+                this.x = options.x
+                this.y = options.y
+                this.radius = options.radius
+                this.speed = options.speed
+                this.color = options.color || 'white'
+            }
+            draw () {
+                ctx.save()
+                ctx.beginPath()
+                ctx.fillStyle = this.color
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+                ctx.fill()
+                ctx.closePath()
+            }
+            update () {
+                this.y += this.speed
+            }
+        }
+
+        function createParticles () {
+            tick++
+            if (tick % 10 === 0) {
+                if (particles.length < COUNT_NUNBER) {
+                    particles.push(new Particle({
+                        x: rand(0, MAX_WIDTH),
+                        y: 0,
+                        radius: rand(5, 13),
+                        speed: rand(3, 8)
+                    }))
+                }
+            }
+        }
+        function drawParticles () {
+            ctx.clearRect(0, 0, MAX_WIDTH, MAX_HEIGHT)
+            for (var i in particles) {
+                var p = particles[i]
+                p.draw()
+            }
+        }
+
+        function updateParticles () {
+            for (var i in particles) {
+                var p = particles[i]
+                p.update()
+            }
+        }
+
+        function killParticles () {
+            for (var i in particles) {
+                var p = particles[i]
+                if (p.y > MAX_HEIGHT) {
+                    p = new Particle({
+                    x: rand(0, MAX_WIDTH),
+                    y: 0,
+                    radius: rand(5, 10),
+                    speed: rand(3, 5)
+                })
+                }
+            }
+        }
+
+        function effection () {
+            // 创建粒子
+            createParticles()
+            // 绘制粒子
+            drawParticles()
+            // 更新粒子
+            updateParticles()
+            // 清除粒子
+            killParticles()
+            // 执行动画帧
+            requestAnimationFrame(effection)
+        }
+
+        effection()
+    </script>
+</body>
+</html>
